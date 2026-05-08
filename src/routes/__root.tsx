@@ -73,15 +73,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Cars Night" },
-      { name: "description", content: "CarsNight - Where The Streets Never Sleep. A global community for car enthusiasts, night drivers, JDM lovers, supercar fans, builders, tuners, photographers." },
+      { name: "description", content: "CarsNight - Where The Streets Never Sleep.
+A global community for car enthusiasts, night drivers, JDM lovers, supercar fans, builders, tuners, photographers." },
       { name: "author", content: "Lovable" },
       { property: "og:title", content: "Cars Night" },
-      { property: "og:description", content: "CarsNight - Where The Streets Never Sleep. A global community for car enthusiasts, night drivers, JDM lovers, supercar fans, builders, tuners, photographers." },
+      { property: "og:description", content: "CarsNight - Where The Streets Never Sleep.
+A global community for car enthusiasts, night drivers, JDM lovers, supercar fans, builders, tuners, photographers." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
       { name: "twitter:title", content: "Cars Night" },
-      { name: "twitter:description", content: "CarsNight - Where The Streets Never Sleep. A global community for car enthusiasts, night drivers, JDM lovers, supercar fans, builders, tuners, photographers." },
+      { name: "twitter:description", content: "CarsNight - Where The Streets Never Sleep.
+A global community for car enthusiasts, night drivers, JDM lovers, supercar fans, builders, tuners, photographers." },
       { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/oc4fXo7sryLpcrDodYjhn32gKQu1/social-images/social-1778244204395-1000097980.webp" },
       { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/oc4fXo7sryLpcrDodYjhn32gKQu1/social-images/social-1778244204395-1000097980.webp" },
     ],
