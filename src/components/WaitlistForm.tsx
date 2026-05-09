@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { z } from "zod";
-import { supabase } from "@/integrations/supabase/client";
+import { Loader2 } from "lucide-react";
+import { waitlistSupabase } from "@/integrations/external-supabase";
 import { toast } from "sonner";
 
 const schema = z.object({
@@ -27,23 +28,50 @@ export function WaitlistForm({ buttonLabel = "Get Early Access", compact = false
       return;
     }
     setLoading(true);
-    const { error } = await supabase.from("waitlist_users").insert({
-      name: parsed.data.name,
-      email: parsed.data.email.toLowerCase(),
-      favorite_car: parsed.data.favorite_car,
-    });
-    setLoading(false);
+    try {
+      const email = parsed.data.email.toLowerCase();
 
-    if (error) {
-      if (error.code === "23505") {
-        toast.error("This email is already on the waitlist.");
-      } else {
-        toast.error("Something went wrong. Try again.");
+      // Check for duplicate email first
+      const { data: existing, error: checkError } = await waitlistSupabase
+        .from("waitlist")
+        .select("email")
+        .eq("email", email)
+        .maybeSingle();
+
+      if (checkError && checkError.code !== "PGRST116") {
+        throw checkError;
       }
-      return;
+      if (existing) {
+        toast.error("This email is already on the waitlist.");
+        setLoading(false);
+        return;
+      }
+
+      const { error } = await waitlistSupabase.from("waitlist").insert({
+        name: parsed.data.name,
+        email,
+        favorite_car: parsed.data.favorite_car,
+      });
+
+      if (error) {
+        if (error.code === "23505") {
+          toast.error("This email is already on the waitlist.");
+        } else {
+          toast.error("Something went wrong. Try again.");
+        }
+        setLoading(false);
+        return;
+      }
+
+      setForm({ name: "", email: "", favorite_car: "" });
+      setDone(true);
+      toast.success("Welcome to CarsNight 🌃");
+    } catch (err) {
+      console.error(err);
+      toast.error("Something went wrong. Try again.");
+    } finally {
+      setLoading(false);
     }
-    setDone(true);
-    toast.success("Welcome to CarsNight 🌃");
   };
 
   if (done) {
@@ -98,7 +126,10 @@ export function WaitlistForm({ buttonLabel = "Get Early Access", compact = false
         style={{ background: "var(--gradient-neon)" }}
       >
         <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent group-hover:animate-scan" />
-        <span className="relative">{loading ? "Joining…" : buttonLabel}</span>
+        <span className="relative inline-flex items-center justify-center gap-2">
+          {loading && <Loader2 className="h-4 w-4 animate-spin" />}
+          {loading ? "Joining…" : buttonLabel}
+        </span>
       </button>
     </form>
   );
