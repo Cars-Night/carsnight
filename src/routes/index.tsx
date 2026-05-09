@@ -9,7 +9,7 @@ import {
   CalendarDays,
   ArrowRight,
 } from "lucide-react";
-import logo from "@/assets/carsnight-logo.webp";
+import logo from "@/assets/carsnight-logo.png";
 import heroBg from "@/assets/hero-tokyo.jpg";
 import ctaBg from "@/assets/cta-car.jpg";
 import appMockup from "@/assets/app-mockup.jpg";
