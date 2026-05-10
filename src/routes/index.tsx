@@ -63,9 +63,8 @@ function Landing() {
       {/* Nav */}
       <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-background/40 border-b border-border/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-          <a href="#top" className="flex items-center gap-2">
-            <img src={logo} alt="CarsNight" className="h-9 w-auto" />
-          </a>
+          <div />
+
           <a
             href="#waitlist"
             className="hidden sm:inline-flex items-center gap-2 text-sm font-display tracking-widest uppercase text-foreground/90 hover:text-accent transition-colors"
@@ -246,7 +245,7 @@ function Landing() {
       </section>
 
       <footer className="border-t border-border/50 py-10 px-4 text-center">
-        <img src={logo} alt="CarsNight" className="h-8 w-auto mx-auto mb-4 opacity-80" />
+        <img src={logo} alt="CarsNight" className="h-20 sm:h-24 w-auto mx-auto mb-4 opacity-90" />
         <p className="font-display tracking-[0.3em] uppercase text-xs text-muted-foreground">
           © {new Date().getFullYear()} CarsNight — Where the streets never sleep.
         </p>
