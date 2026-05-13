@@ -10,6 +10,6 @@ if (!SUPABASE_URL || !SUPABASE_KEY) {
   );
 }
 
-export const waitlistSupabase = createClient(SUPABASE_URL, SUPABASE_KEY, {
+export const waitlistSupabase = createClient(SUPABASE_URL ?? "", SUPABASE_KEY ?? "", {
   auth: { persistSession: false },
 });
