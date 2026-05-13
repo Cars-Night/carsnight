@@ -66,9 +66,9 @@ export function WaitlistForm({ buttonLabel = "Get Early Access", compact = false
       setForm({ name: "", email: "", favorite_car: "" });
       setDone(true);
       toast.success("Welcome to CarsNight 🌃");
-    } catch (err) {
-      console.error(err);
-      toast.error("Something went wrong. Try again.");
+    } catch (err: any) {
+      console.error("[waitlist] submit failed", err);
+      toast.error(err?.message || "Something went wrong. Try again.");
     } finally {
       setLoading(false);
     }
