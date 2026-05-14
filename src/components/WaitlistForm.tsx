@@ -88,9 +88,8 @@ export function WaitlistForm({ buttonLabel = "Get Early Access", compact = false
           You're on the list. Watch your inbox — the streets are calling.
         </p>
         <div className="mt-6 pt-6 border-t border-border/50">
-          <p className="text-sm text-foreground/90 mb-4">
-            While you wait, roll with the crew. Join our Facebook group to swap builds,
-            share night drives, and meet enthusiasts before launch.
+          <p className="text-base text-foreground mb-4 font-medium">
+            Roll with the crew while you wait.
           </p>
           <a
             href="https://www.facebook.com/share/g/1E4Qp1dasz/"
@@ -101,9 +100,12 @@ export function WaitlistForm({ buttonLabel = "Get Early Access", compact = false
           >
             <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent group-hover:animate-scan" />
             <span className="relative inline-flex items-center gap-2">
-              Join the Facebook Group →
+              Enter the Inner Circle →
             </span>
           </a>
+          <p className="text-xs text-muted-foreground mt-3">
+            Where the night crew lives — exclusive builds, meets & drops.
+          </p>
         </div>
       </div>
     );
