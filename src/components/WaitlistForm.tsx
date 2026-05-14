@@ -87,6 +87,24 @@ export function WaitlistForm({ buttonLabel = "Get Early Access", compact = false
         <p className="text-muted-foreground">
           You're on the list. Watch your inbox — the streets are calling.
         </p>
+        <div className="mt-6 pt-6 border-t border-border/50">
+          <p className="text-sm text-foreground/90 mb-4">
+            While you wait, roll with the crew. Join our Facebook group to swap builds,
+            share night drives, and meet enthusiasts before launch.
+          </p>
+          <a
+            href="https://www.facebook.com/share/g/1E4Qp1dasz/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative inline-flex w-full items-center justify-center overflow-hidden rounded-lg px-6 py-3 font-display font-semibold tracking-widest uppercase text-primary-foreground"
+            style={{ background: "var(--gradient-neon)" }}
+          >
+            <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/30 to-transparent group-hover:animate-scan" />
+            <span className="relative inline-flex items-center gap-2">
+              Join the Facebook Group →
+            </span>
+          </a>
+        </div>
       </div>
     );
   }
