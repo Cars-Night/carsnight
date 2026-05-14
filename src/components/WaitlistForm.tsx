@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { z } from "zod";
 import { Loader2 } from "lucide-react";
-import { waitlistSupabase } from "@/integrations/external-supabase";
+import { waitlistSupabase, waitlistConfigured } from "@/integrations/external-supabase";
 import { toast } from "sonner";
 
 const schema = z.object({
