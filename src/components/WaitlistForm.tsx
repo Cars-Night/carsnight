@@ -29,6 +29,11 @@ export function WaitlistForm({ buttonLabel = "Get Early Access", compact = false
     }
     setLoading(true);
     try {
+      if (!waitlistConfigured || !waitlistSupabase) {
+        toast.error("Waitlist is not configured yet. Please try again later.");
+        setLoading(false);
+        return;
+      }
       const email = parsed.data.email.toLowerCase();
 
       // Check for duplicate email first
