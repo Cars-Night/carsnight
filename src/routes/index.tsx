@@ -125,16 +125,6 @@ function Landing() {
 
       {/* Waitlist */}
       <section id="waitlist" className="relative py-24 px-4 sm:px-6">
-        <div className="max-w-2xl mx-auto text-center mb-10">
-          <p className="font-display tracking-[0.3em] uppercase text-xs text-accent mb-3">Early Access</p>
-          <h2 className="font-display text-3xl sm:text-5xl font-bold">
-            Reserve your spot on <span className="text-gradient-neon">CarsNight</span>
-          </h2>
-          <p className="mt-4 text-muted-foreground">
-            Be first in line when the engines start. No spam. Just the drop.
-          </p>
-        </div>
-
         {/* Founding Member Benefits + Waitlist Form */}
         <div className="max-w-2xl mx-auto">
           <div className="relative group">
