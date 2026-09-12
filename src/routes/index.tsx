@@ -9,12 +9,15 @@ import {
   Image as ImageIcon,
   CalendarDays,
   ArrowRight,
+  Check,
+  Zap,
 } from "lucide-react";
 import logo from "@/assets/carsnight-logo.png";
 import heroBg from "@/assets/hero-tokyo.jpg";
 import ctaBg from "@/assets/cta-car.jpg";
 import appMockup from "@/assets/app-mockup.jpg";
 import { WaitlistForm } from "@/components/WaitlistForm";
+import { waitlistSupabase, waitlistConfigured } from "@/integrations/external-supabase";
 
 export const Route = createFileRoute("/")({
   head: () => ({
