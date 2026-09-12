@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { Toaster } from "sonner";
 import {
@@ -8,12 +9,15 @@ import {
   Image as ImageIcon,
   CalendarDays,
   ArrowRight,
+  Check,
+  Zap,
 } from "lucide-react";
 import logo from "@/assets/carsnight-logo.png";
 import heroBg from "@/assets/hero-tokyo.jpg";
 import ctaBg from "@/assets/cta-car.jpg";
 import appMockup from "@/assets/app-mockup.jpg";
 import { WaitlistForm } from "@/components/WaitlistForm";
+import { waitlistSupabase, waitlistConfigured } from "@/integrations/external-supabase";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -54,6 +58,50 @@ const features = [
   { icon: Camera, title: "Photography Community", desc: "Automotive photographers and creators sharing the craft, frame by frame." },
   { icon: CalendarDays, title: "Meetups & Events", desc: "Plan, RSVP, and remember every meet — coming soon to CarsNight." },
 ];
+
+function FoundingMembers() {
+  const [remaining, setRemaining] = useState<number | null>(null);
+
+  useEffect(() => {
+    if (!waitlistConfigured || !waitlistSupabase) return;
+    waitlistSupabase
+      .from("waitlist")
+      .select("*", { count: "exact", head: true })
+      .then(({ count, error }) => {
+        if (error || count == null) return;
+        setRemaining(Math.max(0, 500 - count));
+      });
+  }, []);
+
+  const benefits = [
+    { icon: Check, text: "First in line when the app launches" },
+    { icon: Check, text: "Early access — in before everyone else" },
+    { icon: Check, text: "Direct input on features you want built" },
+    { icon: Zap, text: "Founding badge on your profile — permanently" },
+  ];
+
+  return (
+    <section className="relative py-16 px-4 sm:px-6">
+      <div className="max-w-4xl mx-auto glass-card neon-border p-6 sm:p-8 glow-mixed">
+        <h2 className="font-display text-2xl sm:text-3xl font-bold text-accent mb-6 flex items-center gap-3">
+          <span>🏁</span> Founding Members get
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {benefits.map((b) => (
+            <div key={b.text} className="flex items-start gap-3">
+              <b.icon className="h-5 w-5 text-accent shrink-0 mt-0.5" />
+              <span className="text-foreground text-sm leading-snug">{b.text}</span>
+            </div>
+          ))}
+        </div>
+        <p className="mt-6 text-xs text-muted-foreground text-center">
+          Only 500 founding spots available.
+          {remaining !== null ? ` ${remaining} spots remaining.` : " Join now."}
+        </p>
+      </div>
+    </section>
+  );
+}
 
 function Landing() {
   return (
@@ -121,6 +169,8 @@ function Landing() {
           </p>
         </div>
       </section>
+
+      <FoundingMembers />
 
       {/* Waitlist */}
       <section id="waitlist" className="relative py-24 px-4 sm:px-6">
