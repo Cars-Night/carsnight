@@ -135,23 +135,23 @@ function Landing() {
           </p>
         </div>
 
-        {/* Founding Member Benefits */}
-        <div className="max-w-2xl mx-auto mb-10">
+        {/* Founding Member Benefits + Waitlist Form */}
+        <div className="max-w-2xl mx-auto">
           <div className="relative group">
-            {/* Neon glow aura */}
+            {/* Soft neon glow */}
             <div
-              className="absolute -inset-1 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-1000"
+              className="absolute -inset-1 rounded-2xl blur opacity-20 group-hover:opacity-35 transition duration-1000"
               style={{ background: "var(--gradient-neon)" }}
             />
 
-            {/* Card body */}
-            <div className="relative glass-card neon-border p-6 sm:p-8 overflow-hidden">
+            {/* Unified card */}
+            <div className="relative glass-card neon-border overflow-hidden">
               {/* Accent corner glows */}
-              <div className="absolute top-0 right-0 w-32 h-32 bg-accent/10 blur-3xl rounded-full -mr-16 -mt-16" />
-              <div className="absolute bottom-0 left-0 w-32 h-32 bg-primary/10 blur-3xl rounded-full -ml-16 -mb-16" />
+              <div className="absolute top-0 right-0 w-40 h-40 bg-accent/10 blur-3xl rounded-full -mr-20 -mt-20" />
+              <div className="absolute bottom-0 left-0 w-40 h-40 bg-primary/10 blur-3xl rounded-full -ml-20 -mb-20" />
 
-              {/* Header */}
-              <div className="relative mb-8">
+              {/* Benefits header */}
+              <div className="relative p-6 sm:p-8 pb-0">
                 <p className="font-display text-[10px] uppercase tracking-[0.4em] text-accent mb-2 font-bold">
                   Exclusive Access
                 </p>
@@ -162,58 +162,53 @@ function Landing() {
                 <div className="h-1 w-12 mt-4 rounded-full" style={{ background: "var(--gradient-neon)" }} />
               </div>
 
-              {/* Benefits list */}
-              <ul className="relative space-y-5">
+              {/* Benefits grid */}
+              <ul className="relative grid grid-cols-1 sm:grid-cols-2 gap-4 p-6 sm:p-8 pt-6">
                 {[
                   { text: "First in line when the app launches", accent: "purple" },
                   { text: "Early access — in before everyone else", accent: "blue" },
                   { text: "Direct input on features you want built", accent: "purple" },
                   { text: "Founding badge on your profile — permanently", accent: "blue" },
-                ].map((benefit, i) => (
-                  <li key={benefit.text} className="flex items-center gap-4 group/item">
+                ].map((benefit) => (
+                  <li
+                    key={benefit.text}
+                    className="flex items-start gap-3 p-3 rounded-xl bg-background/30 border border-border/30"
+                  >
                     <div
-                      className={`flex-shrink-0 w-7 h-7 rounded flex items-center justify-center transition-colors ${
+                      className={`flex-shrink-0 w-6 h-6 rounded flex items-center justify-center mt-0.5 ${
                         benefit.accent === "purple"
-                          ? "border-primary/50 bg-primary/10 shadow-[0_0_10px_oklch(0.62_0.25_295/0.3)]"
-                          : "border-accent/50 bg-accent/10 shadow-[0_0_10px_oklch(0.72_0.2_230/0.3)]"
+                          ? "bg-primary/15 text-primary"
+                          : "bg-accent/15 text-accent"
                       }`}
                     >
-                      <Check
-                        className={`h-4 w-4 ${
-                          benefit.accent === "purple" ? "text-primary" : "text-accent"
-                        }`}
-                        strokeWidth={3}
-                      />
+                      <Check className="h-3.5 w-3.5" strokeWidth={3} />
                     </div>
-                    <span className="text-base sm:text-lg font-semibold text-foreground/90 tracking-wide">
+                    <span className="text-sm sm:text-base font-medium text-foreground/90 leading-snug">
                       {benefit.text}
                     </span>
                   </li>
                 ))}
               </ul>
 
+              {/* Divider */}
+              <div className="relative px-6 sm:px-8">
+                <div className="h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+              </div>
+
+              {/* Form */}
+              <div className="relative p-6 sm:p-8">
+                <WaitlistForm compact />
+              </div>
+
               {/* Scanline overlay */}
               <div className="absolute inset-0 scanlines" />
-
-              {/* Membership tier indicator */}
-              <div className="relative mt-8 pt-6 border-t border-border/30 flex justify-between items-center">
-                <span className="text-xs text-muted-foreground uppercase tracking-widest font-display">
-                  Batch #001
-                </span>
-                <span className="text-xs font-bold text-primary uppercase tracking-widest italic font-display">
-                  Limited Supply
-                </span>
-              </div>
             </div>
           </div>
 
           <p className="mt-6 text-center text-xs sm:text-sm text-muted-foreground">
-            Only 500 founding spots available. Spots remaining.
+            Only 500 founding spots available.{" "}
+            <span className="text-foreground font-medium">Join now</span>
           </p>
-        </div>
-
-        <div className="max-w-md mx-auto">
-          <WaitlistForm />
         </div>
       </section>
 
