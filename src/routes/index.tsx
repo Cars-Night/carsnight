@@ -214,7 +214,6 @@ function Landing() {
         <div className="max-w-3xl mx-auto glass-card neon-border px-6 py-10 text-center">
           <p className="font-display text-2xl sm:text-3xl">
             Be among the first <span className="text-gradient-neon font-bold">500</span> founding members
-            <br className="hidden sm:block" /> of CarsNight.
           </p>
         </div>
       </section>
