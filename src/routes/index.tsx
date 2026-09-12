@@ -133,6 +133,32 @@ function Landing() {
             Be first in line when the engines start. No spam. Just the drop.
           </p>
         </div>
+
+        {/* Founding Member Benefits */}
+        <div className="max-w-3xl mx-auto mb-10">
+          <div className="glass-card neon-border p-6 sm:p-8">
+            <h3 className="font-display text-xl sm:text-2xl font-bold text-center mb-6">
+              Founding Members get
+            </h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {[
+                "First in line when the app launches",
+                "Early access — in before everyone else",
+                "Direct input on features you want built",
+                "Founding badge on your profile — permanently",
+              ].map((benefit) => (
+                <div key={benefit} className="flex items-start gap-3 text-foreground/90">
+                  <span className="mt-1 text-accent">✅</span>
+                  <span className="text-sm sm:text-base">{benefit}</span>
+                </div>
+              ))}
+            </div>
+            <p className="mt-6 text-center text-xs sm:text-sm text-muted-foreground">
+              Only 500 founding spots available. Spots remaining.
+            </p>
+          </div>
+        </div>
+
         <div className="max-w-md mx-auto">
           <WaitlistForm />
         </div>
