@@ -8,6 +8,7 @@ import {
   Image as ImageIcon,
   CalendarDays,
   ArrowRight,
+  Check,
 } from "lucide-react";
 import logo from "@/assets/carsnight-logo.png";
 import heroBg from "@/assets/hero-tokyo.jpg";
