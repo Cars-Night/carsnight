@@ -170,6 +170,8 @@ function Landing() {
         </div>
       </section>
 
+      <FoundingMembers />
+
       {/* Waitlist */}
       <section id="waitlist" className="relative py-24 px-4 sm:px-6">
         <div className="max-w-2xl mx-auto text-center mb-10">
