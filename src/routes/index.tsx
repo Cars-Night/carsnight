@@ -213,8 +213,8 @@ function Landing() {
       <section className="relative py-16 px-4 sm:px-6">
         <div className="max-w-3xl mx-auto glass-card neon-border px-6 py-10 text-center">
           <p className="font-display text-2xl sm:text-3xl">
-            Join <span className="text-gradient-neon font-bold">1,200+</span> car enthusiasts
-            <br className="hidden sm:block" /> already following CarsNight.
+            Be among the first <span className="text-gradient-neon font-bold">500</span> founding members
+            <br className="hidden sm:block" /> of CarsNight.
           </p>
         </div>
       </section>
