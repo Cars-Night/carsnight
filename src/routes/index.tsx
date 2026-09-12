@@ -8,6 +8,7 @@ import {
   Image as ImageIcon,
   CalendarDays,
   ArrowRight,
+  Check,
 } from "lucide-react";
 import logo from "@/assets/carsnight-logo.png";
 import heroBg from "@/assets/hero-tokyo.jpg";
@@ -135,28 +136,80 @@ function Landing() {
         </div>
 
         {/* Founding Member Benefits */}
-        <div className="max-w-3xl mx-auto mb-10">
-          <div className="glass-card neon-border p-6 sm:p-8">
-            <h3 className="font-display text-xl sm:text-2xl font-bold text-center mb-6">
-              Founding Members get
-            </h3>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              {[
-                "First in line when the app launches",
-                "Early access — in before everyone else",
-                "Direct input on features you want built",
-                "Founding badge on your profile — permanently",
-              ].map((benefit) => (
-                <div key={benefit} className="flex items-start gap-3 text-foreground/90">
-                  <span className="mt-1 text-accent">✅</span>
-                  <span className="text-sm sm:text-base">{benefit}</span>
-                </div>
-              ))}
+        <div className="max-w-2xl mx-auto mb-10">
+          <div className="relative group">
+            {/* Neon glow aura */}
+            <div
+              className="absolute -inset-1 rounded-2xl blur opacity-20 group-hover:opacity-40 transition duration-1000"
+              style={{ background: "var(--gradient-neon)" }}
+            />
+
+            {/* Card body */}
+            <div className="relative glass-card neon-border p-6 sm:p-8 overflow-hidden">
+              {/* Accent corner glows */}
+              <div className="absolute top-0 right-0 w-32 h-32 bg-accent/10 blur-3xl rounded-full -mr-16 -mt-16" />
+              <div className="absolute bottom-0 left-0 w-32 h-32 bg-primary/10 blur-3xl rounded-full -ml-16 -mb-16" />
+
+              {/* Header */}
+              <div className="relative mb-8">
+                <p className="font-display text-[10px] uppercase tracking-[0.4em] text-accent mb-2 font-bold">
+                  Exclusive Access
+                </p>
+                <h3 className="font-display text-2xl sm:text-3xl font-bold tracking-tight">
+                  Founding Members{" "}
+                  <span className="text-gradient-neon">Get</span>
+                </h3>
+                <div className="h-1 w-12 mt-4 rounded-full" style={{ background: "var(--gradient-neon)" }} />
+              </div>
+
+              {/* Benefits list */}
+              <ul className="relative space-y-5">
+                {[
+                  { text: "First in line when the app launches", accent: "purple" },
+                  { text: "Early access — in before everyone else", accent: "blue" },
+                  { text: "Direct input on features you want built", accent: "purple" },
+                  { text: "Founding badge on your profile — permanently", accent: "blue" },
+                ].map((benefit, i) => (
+                  <li key={benefit.text} className="flex items-center gap-4 group/item">
+                    <div
+                      className={`flex-shrink-0 w-7 h-7 rounded flex items-center justify-center transition-colors ${
+                        benefit.accent === "purple"
+                          ? "border-primary/50 bg-primary/10 shadow-[0_0_10px_oklch(0.62_0.25_295/0.3)]"
+                          : "border-accent/50 bg-accent/10 shadow-[0_0_10px_oklch(0.72_0.2_230/0.3)]"
+                      }`}
+                    >
+                      <Check
+                        className={`h-4 w-4 ${
+                          benefit.accent === "purple" ? "text-primary" : "text-accent"
+                        }`}
+                        strokeWidth={3}
+                      />
+                    </div>
+                    <span className="text-base sm:text-lg font-semibold text-foreground/90 tracking-wide">
+                      {benefit.text}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+
+              {/* Scanline overlay */}
+              <div className="absolute inset-0 scanlines" />
+
+              {/* Membership tier indicator */}
+              <div className="relative mt-8 pt-6 border-t border-border/30 flex justify-between items-center">
+                <span className="text-xs text-muted-foreground uppercase tracking-widest font-display">
+                  Batch #001
+                </span>
+                <span className="text-xs font-bold text-primary uppercase tracking-widest italic font-display">
+                  Limited Supply
+                </span>
+              </div>
             </div>
-            <p className="mt-6 text-center text-xs sm:text-sm text-muted-foreground">
-              Only 500 founding spots available. Spots remaining.
-            </p>
           </div>
+
+          <p className="mt-6 text-center text-xs sm:text-sm text-muted-foreground">
+            Only 500 founding spots available. Spots remaining.
+          </p>
         </div>
 
         <div className="max-w-md mx-auto">
