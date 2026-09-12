@@ -78,7 +78,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:title", content: "Cars Night" },
       { property: "og:description", content: "CarsNight is a social network for car enthusiasts, offering a platform to share rides and connect with a global community." },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@carsnight1" },
       { name: "twitter:creator", content: "@carsnight1" },
       { name: "twitter:title", content: "Cars Night" },
